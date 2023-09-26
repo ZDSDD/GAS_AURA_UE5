@@ -3,6 +3,11 @@
 
 #include "Character/AuraCharacterBase.h"
 
+UAbilitySystemComponent* AAuraCharacterBase::GetAbilitySystemComponent() const
+{
+	return this->AbilitySystemComponent;
+}
+
 // Sets default values
 AAuraCharacterBase::AAuraCharacterBase()
 {

@@ -7,10 +7,6 @@
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
 #include "AbilitySystem/AuraAttributeSet.h"
 
-UAbilitySystemComponent* AAuraPlayerState::GetAbilitySystemComponent() const
-{
-	return this->AbilitySystemComponent;
-}
 
 AAuraPlayerState::AAuraPlayerState()
 {
@@ -18,6 +14,12 @@ AAuraPlayerState::AAuraPlayerState()
 
 	this->AbilitySystemComponent = CreateDefaultSubobject<UAuraAbilitySystemComponent>("AbilitySystemComponent");
 	this->AbilitySystemComponent->SetIsReplicated(true);
+	this->AbilitySystemComponent->SetReplicationMode(EGameplayEffectReplicationMode::Mixed);
 
 	this->AttributeSet = CreateDefaultSubobject<UAuraAttributeSet>("AttributeSet");
+}
+
+UAbilitySystemComponent* AAuraPlayerState::GetAbilitySystemComponent() const
+{
+	return this->AbilitySystemComponent;
 }

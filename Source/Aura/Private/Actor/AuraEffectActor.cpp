@@ -3,25 +3,48 @@
 
 #include "Actor/AuraEffectActor.h"
 
-// Sets default values
+#include "AbilitySystemComponent.h"
+#include "AbilitySystemInterface.h"
+#include "AbilitySystem/AuraAttributeSet.h"
+#include "Components/SphereComponent.h"
+
 AAuraEffectActor::AAuraEffectActor()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
+	this->Mesh = CreateDefaultSubobject<UStaticMeshComponent>("Mesh");
+	SetRootComponent(Mesh);
+
+	this->Sphere = CreateDefaultSubobject<USphereComponent>("Sphere");
+	Sphere->SetupAttachment(GetRootComponent());
 }
 
-// Called when the game starts or when spawned
+/** Callback for OnComponentBeginOverlap*/
+void AAuraEffectActor::OnOverlap(UPrimitiveComponent* OverlapComponent, AActor* OtherActor,
+                                 UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
+                                 const FHitResult& SweepResult)
+{
+	// TODO: Change this to apply a Gameplay Effect. For now using const_cast as a hack!
+	if(IAbilitySystemInterface* ASCInterface = Cast<IAbilitySystemInterface>(OtherActor))
+	{
+		const UAuraAttributeSet* AuraAttributes = Cast<UAuraAttributeSet>(ASCInterface->GetAbilitySystemComponent()->GetAttributeSet(UAuraAttributeSet::StaticClass()));
+
+		UAuraAttributeSet* MutableAuraAttributeSet = const_cast<UAuraAttributeSet*>(AuraAttributes);
+		MutableAuraAttributeSet->SetHealth(AuraAttributes->GetHealth() + 25.f);
+		Destroy();
+	}
+}
+
+/** Callback for OnComponentEndOverlap*/
+void AAuraEffectActor::OnOverlapEnd(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+}
+
 void AAuraEffectActor::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AAuraEffectActor::OnOverlap);
+	Sphere->OnComponentEndOverlap.AddDynamic(this, &AAuraEffectActor::OnOverlapEnd);
 }
-
-// Called every frame
-void AAuraEffectActor::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
-}
-

@@ -31,7 +31,7 @@ AAuraCharacter::AAuraCharacter()
 
 void AAuraCharacter::InitAbilityActorInfo()
 {
-	const auto AuraPlayerState = CastChecked<AAuraPlayerState>(GetPlayerState());
+	AAuraPlayerState* AuraPlayerState = CastChecked<AAuraPlayerState>(GetPlayerState());
 	AuraPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(AuraPlayerState,this);
 	AbilitySystemComponent = AuraPlayerState->GetAbilitySystemComponent();
 	AttributeSet = AuraPlayerState->GetAttributeSet();

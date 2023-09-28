@@ -24,7 +24,7 @@ public:
 	TObjectPtr<UAuraUserWidget> OverlayWidget;
 
 	UAuraOverlayWidgetController* GetOverlayWidgetController(const FWidgetControllerParams& WCParams);
-
+	
 	void InitOverlay(APlayerController* PC, APlayerState* PS, UAbilitySystemComponent* ASC, UAttributeSet* AS);
 	
 private:

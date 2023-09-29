@@ -5,6 +5,7 @@
 #include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystemInterface.h"
 #include "AbilitySystem/AuraAbilitySystemComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 AAuraEffectActor::AAuraEffectActor()
 {

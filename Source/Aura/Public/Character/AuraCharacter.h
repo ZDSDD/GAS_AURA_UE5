@@ -19,7 +19,7 @@ class AURA_API AAuraCharacter : public AAuraCharacterBase
 
 public:
 	AAuraCharacter();
-	void InitAbilityActorInfo();
+	virtual void InitAbilityActorInfo() override;
 
 private:
 	UPROPERTY(EditAnywhere, Category="Camera")

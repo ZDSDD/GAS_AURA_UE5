@@ -59,13 +59,13 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category="Applied Effects|Duration", BlueprintReadOnly)
 	TSubclassOf<UGameplayEffect> DurationGameplayEffectClass;
-	UPROPERTY(EditAnywhere, Category="Applied Effects|Instant", BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, Category="Applied Effects|Duration", BlueprintReadOnly)
 	EEffectApplicationPolicy DurationEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
 
 	UPROPERTY(EditAnywhere, Category="Applied Effects|Infinite", BlueprintReadOnly)
 	TSubclassOf<UGameplayEffect> InfiniteGameplayEffectClass;
-	UPROPERTY(EditAnywhere, Category="Applied Effects|Instant", BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, Category="Applied Effects|Infinite", BlueprintReadOnly)
 	EEffectApplicationPolicy InfiniteEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
-	UPROPERTY(EditAnywhere, Category="Applied Effects|Instant", BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, Category="Applied Effects|Infinite", BlueprintReadOnly)
 	EEffectRemovalPolicy InfiniteEffectRemovalPolicy = EEffectRemovalPolicy::RemoveOnEndOverlap;
 };

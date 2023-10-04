@@ -25,9 +25,9 @@ public:
 	UAttributeSet* GetAttributeSet() const { return AttributeSet; }
 
 protected:
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, Category="GAS")
 	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
 
-	UPROPERTY()
+	UPROPERTY(VisibleAnywhere, Category="GAS")
 	TObjectPtr<UAttributeSet> AttributeSet;
 };

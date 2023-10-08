@@ -24,4 +24,25 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 	                           FActorComponentTickFunction* ThisTickFunction) override;
+
+private:
+	UPROPERTY(EditAnywhere, Category = "Mover")
+	FVector MoveVelocity;
+
+	UPROPERTY(EditAnywhere, Category = "Mover")
+	FRotator RotationVelocity;
+
+	UPROPERTY(EditAnywhere, Category = "Mover")
+	float MoveDistance;
+
+	FVector StartLocation{};
+
+private:
+	void Move(const float DeltaTime);
+
+	FORCEINLINE void Rotate(const float DeltaTime) const;
+
+	FORCEINLINE bool ShouldReturn() const;
+
+	FORCEINLINE float GetDistanceMoved() const;
 };

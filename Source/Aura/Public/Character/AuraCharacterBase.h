@@ -40,12 +40,16 @@ protected:
 
 	virtual void InitAbilityActorInfo();
 
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category= "Attributes|Primary")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category= "Attributes")
 	TSubclassOf<UGameplayEffect> DefaultPrimaryAttributes;
 
-	/** It needs to be initialized only after 'DefaultPrimaryAttributes' */
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category= "Attributes|Secondary")
+	/** It needs to be initialized only after Primary Attributes!! */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category= "Attributes")
 	TSubclassOf<UGameplayEffect> DefaultSecondaryAttributes;
+	
+	/** It needs to be initialized only after Secondary Attributes!! */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category= "Attributes")
+	TSubclassOf<UGameplayEffect> DefaultVitalAttributes;
 
 
 	void ApplyEffectToSelf(TSubclassOf<UGameplayEffect> GameplayEffectClass, float Level) const;
@@ -55,4 +59,6 @@ protected:
 	void InitializePrimaryAttributes() const;
 
 	void InitializeSecondaryAttributes() const;
+	
+	void InitializeVitalAttributes() const;
 };

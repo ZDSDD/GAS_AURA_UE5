@@ -55,7 +55,7 @@ class AURA_API UAuraAttributeSet : public UAttributeSet
 	GENERATED_BODY()
 
 public:
-	UAuraAttributeSet();
+	UAuraAttributeSet() = default;
 
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 

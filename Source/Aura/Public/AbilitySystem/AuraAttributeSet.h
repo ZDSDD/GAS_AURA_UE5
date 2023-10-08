@@ -74,70 +74,74 @@ public: //Vital Attributes declarations
 
 public: //Primary Attributes declarations
 
+	/** Increases physical damage and Health Regeneration*/
 	UPROPERTY(BlueprintReadOnly, Category = PRIMARY_ATTRIBUTES, ReplicatedUsing = OnRep_Strength)
 	FGameplayAttributeData Strength;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Strength);
 
+	/** Increases magical damage*/
 	UPROPERTY(BlueprintReadOnly, Category = PRIMARY_ATTRIBUTES, ReplicatedUsing = OnRep_Intelligence)
 	FGameplayAttributeData Intelligence;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Intelligence);
 
+	/** Increases Armor and Armor Penetration*/
 	UPROPERTY(BlueprintReadOnly, Category = PRIMARY_ATTRIBUTES, ReplicatedUsing = OnRep_Resilience)
 	FGameplayAttributeData Resilience;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Resilience);
 
+	/** Increases Health*/
 	UPROPERTY(BlueprintReadOnly, Category = PRIMARY_ATTRIBUTES, ReplicatedUsing = OnRep_Vigor)
 	FGameplayAttributeData Vigor;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Vigor);
 
 public: //Secondary Attributes
 
-	/** Reduces damage taken, improves Block Chance*/
+	/** Reduces damage taken, improves Block Chance. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_Armor)
 	FGameplayAttributeData Armor;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, Armor);
 
-	/** Ignores percentage of enemy Armor, increases Critical Hit Chance*/
+	/** Ignores percentage of enemy Armor, increases Critical Hit Chance. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_ArmorPenetration)
 	FGameplayAttributeData ArmorPenetration;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ArmorPenetration);
 
-	/** Chance to cut incoming damage in half*/
+	/** Chance to cut incoming damage in half. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_BlockChance)
 	FGameplayAttributeData BlockChance;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, BlockChance);
 
-	/** Chance to double damage plus critical hit scored*/
+	/** Chance to double damage plus critical hit scored. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_CriticalHitChance)
 	FGameplayAttributeData CriticalHitChance;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CriticalHitChance);
 
-	/** Bonus damage added when a critical hit is scored*/
+	/** Bonus damage added when a critical hit is scored. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_CriticalHitDamage)
 	FGameplayAttributeData CriticalHitDamage;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CriticalHitDamage);
 
-	/** Reduces critical hit chance of attacking enemies*/
+	/** Reduces critical hit chance of attacking enemies. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_CriticalHitResistance)
 	FGameplayAttributeData CriticalHitResistance;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, CriticalHitResistance);
 
-	/** Amount of health regenerated every 1 second*/
+	/** Amount of health regenerated every 1 second. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_HealthRegeneration)
 	FGameplayAttributeData HealthRegeneration;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, HealthRegeneration);
 
-	/** Amount of Mana regenerated every 1 second*/
+	/** Amount of Mana regenerated every 1 second. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_ManaRegeneration)
 	FGameplayAttributeData ManaRegeneration;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ManaRegeneration);
 
-	/** Maximum amount of health obtainable*/
+	/** Maximum amount of health obtainable. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_MaxHealth)
 	FGameplayAttributeData MaxHealth;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxHealth)
 
-	/** Maximum amount of mana obtainable*/
+	/** Maximum amount of mana obtainable. */
 	UPROPERTY(BlueprintReadOnly, Category = SECONDARY_ATTRIBUTES, ReplicatedUsing = OnRep_MaxMana)
 	FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, MaxMana)

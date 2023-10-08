@@ -10,11 +10,8 @@
 
 UAuraAttributeSet::UAuraAttributeSet()
 {
-	/*todo: get rid of these magic numbers*/
-	InitMaxHealth(100.f);
-	InitMaxMana(100.f);
-	InitHealth(MaxHealth.GetCurrentValue() / 2.f);
-	InitMana(MaxMana.GetCurrentValue() / 2.f);
+	InitHealth(100.f);
+	InitMana(100.f);
 }
 
 void UAuraAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const

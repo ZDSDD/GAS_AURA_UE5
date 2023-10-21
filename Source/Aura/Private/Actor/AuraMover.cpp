@@ -5,15 +5,13 @@
 
 
 UAuraMover::UAuraMover() :
-MoveVelocity(0, 0, 5),
-RotationVelocity(0, 5, 0),
-MoveDistance(5.f)
+	MoveVelocity(0, 0, 5),
+	RotationVelocity(0, 5, 0),
+	MoveDistance(5.f)
 {
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
-
-// Called when the game starts
 void UAuraMover::BeginPlay()
 {
 	Super::BeginPlay();
@@ -22,8 +20,6 @@ void UAuraMover::BeginPlay()
 		GetOwner()->GetRootComponent()->SetMobility(EComponentMobility::Movable);
 }
 
-
-// Called every frame
 void UAuraMover::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
@@ -52,7 +48,7 @@ void UAuraMover::Move(const float DeltaTime)
 
 void UAuraMover::Rotate(const float DeltaTime) const
 {
-	GetOwner()->AddActorLocalRotation( RotationVelocity * DeltaTime);
+	GetOwner()->AddActorLocalRotation(RotationVelocity * DeltaTime);
 }
 
 bool UAuraMover::ShouldReturn() const
